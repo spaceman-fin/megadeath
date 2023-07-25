@@ -10,9 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public float groundDrag;
 
     public float jumpForce;
-    public float jumpCooldown;
+    public int jumpCount;
+    private int currentJumps;
     public float airMultiplier;
-    [SerializeField] bool readyToJump;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        readyToJump = true;
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -46,9 +45,12 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         SpeedControl();
 
-        // handle drag
+        // handle drag and jumps
         if (grounded)
+        {
             rb.drag = groundDrag;
+            ResetJump();
+        }
         else
             rb.drag = 0;
     }
@@ -64,11 +66,10 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if(Input.GetKeyDown(jumpKey) && readyToJump && grounded)
+        if(Input.GetKeyDown(jumpKey) && currentJumps > 0)
         {
-            readyToJump = false;
             Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
+            currentJumps--;
         }
     }
 
@@ -108,6 +109,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void ResetJump()
     {
-        readyToJump = true;
+        currentJumps = jumpCount - 1;
     }
 }
