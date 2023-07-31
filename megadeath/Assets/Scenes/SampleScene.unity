@@ -1136,6 +1136,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446576012}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &462642525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2448964821421474561, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+  m_PrefabInstance: {fileID: 2448964821615517276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &462642529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462642525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98263f53d43b79e49907b6bcc355da35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1142893042}
+  playerCam: {fileID: 1292475512}
+  dashForce: 20
+  dashUpwardForce: 0
+  maxDashYSpeed: 15
+  dashDuration: 0.25
+  cam: {fileID: 1292475513}
+  dashFov: 65
+  useCameraForward: 0
+  allowAllDirections: 1
+  disableGravity: 1
+  resetVel: 1
+  dashCd: 1.5
+  dashKey: 304
 --- !u!1 &574017398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2123,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286825069}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1292475512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8650029424767570510, guid: 15e7424de5461a14a92486ffee10b2d4, type: 3}
+  m_PrefabInstance: {fileID: 8650029425147756346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1292475513 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8650029424767570511, guid: 15e7424de5461a14a92486ffee10b2d4, type: 3}
+  m_PrefabInstance: {fileID: 8650029425147756346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c772ebb1ff2aae42af43905615d73ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316128433
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3705,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2448964821421474563, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448964821421474620, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+      propertyPath: dashing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2448964821421474620, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
       propertyPath: speedGUI
       value: 
@@ -3666,6 +3721,26 @@ PrefabInstance:
       propertyPath: stateGUI
       value: 
       objectReference: {fileID: 1586200695}
+    - target: {fileID: 2448964821421474620, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448964821421474620, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+      propertyPath: slideSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448964821421474620, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+      propertyPath: dashSpeedChangeFactor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448964821421474620, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+      propertyPath: slopeIncreaseMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448964821421474620, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
+      propertyPath: speedIncreaseMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b14a7a779b017446a3c66f96d4914f5, type: 3}
 --- !u!1001 &8650029425147756346
@@ -3727,6 +3802,10 @@ PrefabInstance:
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 1970730622}
+    - target: {fileID: 8650029424767570511, guid: 15e7424de5461a14a92486ffee10b2d4, type: 3}
+      propertyPath: FOV
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 8650029424767570511, guid: 15e7424de5461a14a92486ffee10b2d4, type: 3}
       propertyPath: orientation
       value: 

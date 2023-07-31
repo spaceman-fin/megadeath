@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerCam : MonoBehaviour
 {
     public float sensX;
     public float sensY;
+    public float FOV = 90;
 
     public Transform orientation;
 
@@ -14,6 +16,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Start()
     {
+        DoFov();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -33,5 +36,12 @@ public class PlayerCam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
-
+    public void DoFov()
+    {
+        GetComponent<Camera>().DOFieldOfView(FOV, 0.25f);
+    }
+    public void DoFov(float endValue)
+    {
+        GetComponent<Camera>().DOFieldOfView(endValue, 0.25f);
+    }
 }

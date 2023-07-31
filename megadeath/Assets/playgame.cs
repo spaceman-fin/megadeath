@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
+
+public class playgame : MonoBehaviour
+{
+    
+    public TMP_Text instructiontext;
+    public Button controlbutton;
+    public GameObject controlbutton1;
+    public GameObject controlbutton2;
+    public GameObject controlbutton3;
+    void Start()
+    {
+        
+    }
+
+    
+    void Update()
+    {
+        
+    }
+
+    public void playhit()
+    {
+        SceneManager.LoadScene("fist");
+    }
+
+    public void controlhit()
+    {
+        instructiontext.enabled = true;
+        controlbutton1.SetActive(false);
+        controlbutton2.SetActive(true);
+        controlbutton3.SetActive(false);
+    }
+
+    public void backhit()
+    {
+        instructiontext.enabled = false;
+        controlbutton1.SetActive(true);
+        controlbutton2.SetActive(false);
+        controlbutton3.SetActive(true);
+    }
+
+    public void quithit()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
+
+
+}
