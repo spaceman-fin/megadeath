@@ -12,10 +12,27 @@ public class PlayerMovement : MonoBehaviour
     Vector3 inputDirection;
 
     [Header("Movement")]
+    public MovementState state;
     private float moveSpeed;
     public float walkSpeed;
+
     public float groundDrag;
 
+    [Space]
+    private float desiredMoveSpeed;
+    private float lastDesiredMoveSpeed;
+    private MovementState lastState;
+    private bool keepMomentum;
+
+    public float speedIncreaseMultiplier;
+    public float slopeIncreaseMultiplier;
+    private float speedChangeFactor;
+
+    [Header("Dashing")]
+    public float dashSpeed;
+    public float dashSpeedChangeFactor;
+    public bool dashing;
+    public float maxYSpeed;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -29,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     private float startYScale;
 
     public float slideForce;
+    public float slideSpeed;
     private bool sliding;
 
     [Header("Input")]
@@ -51,39 +69,104 @@ public class PlayerMovement : MonoBehaviour
     public TextMeshProUGUI speedGUI;
     public TextMeshProUGUI stateGUI;
 
-    public MovementState state;
+    
+    
     public enum MovementState
     {
         walking,
         crouching,
         sliding,
+        dashing,
         air
     }
 
     private void StateHandler()
     {
-        if (Input.GetKey(crouchKey) && sliding)
+        // Mode - Dashing
+        if (dashing)
+        {
+            state = MovementState.dashing;
+            desiredMoveSpeed = dashSpeed;
+            speedChangeFactor = dashSpeedChangeFactor;
+        }
+        // Mode - Sliding
+        else if (sliding && rb.velocity.magnitude > 0)
         {
             state = MovementState.sliding;
+
+            if (OnSlope() && rb.velocity.y < 0.1f)
+                desiredMoveSpeed = slideSpeed;
+            else
+                desiredMoveSpeed = walkSpeed;
         }
+        // Mode - Crouching
         else if (Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
-            moveSpeed = crouchSpeed;
+            desiredMoveSpeed = crouchSpeed;
         }
+        // Mode - Walking
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            desiredMoveSpeed = walkSpeed;
+        }
+        // Mode - Air
         else
         {
-            if (grounded)
+            state = MovementState.air;
+
+            desiredMoveSpeed = walkSpeed;
+        }
+
+        bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+        if (lastState == MovementState.dashing || lastState == MovementState.sliding) keepMomentum = true;
+
+        if(desiredMoveSpeedHasChanged)
+        {
+            if (keepMomentum)
             {
-                state = MovementState.walking;
-                moveSpeed = walkSpeed;
+                StopAllCoroutines();
+                StartCoroutine(SmoothlyLerpMoveSpeed());
             }
             else
             {
-                state = MovementState.air;
+                StopAllCoroutines();
+                moveSpeed = desiredMoveSpeed;
             }
+        }    
+
+        lastDesiredMoveSpeed = desiredMoveSpeed;
+        lastState = state;
+    }
+
+    private IEnumerator SmoothlyLerpMoveSpeed()
+    {
+        // smoothly lerp movementSpeed to desired value;
+        float time = 0;
+        float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
+        float startValue = moveSpeed;
+
+        float boostFactor = speedChangeFactor;
+
+        while (time < difference)
+        {
+            moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
+            if(OnSlope())
+            {
+                float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
+                float slopeAngleIncrease = 1 + (slopeAngle / 90f);
+                time += Time.deltaTime * speedIncreaseMultiplier * slopeIncreaseMultiplier * slopeAngleIncrease;
+            }
+            else
+                time += Time.deltaTime * boostFactor;
+
+            yield return null;
         }
 
+        moveSpeed = desiredMoveSpeed;
+        speedChangeFactor = speedIncreaseMultiplier;
+        keepMomentum = false;
     }
 
     private void Start()
@@ -104,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
 
         // handle drag and jumps
-        if (grounded)
+        if (state == MovementState.walking || (state == MovementState.sliding && grounded) || (state == MovementState.crouching && grounded) )
         {
             rb.drag = groundDrag;
             ResetJump();
@@ -170,6 +253,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (state == MovementState.dashing) return;
+
         // calculate movement direction
         inputDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -214,6 +299,10 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }
+
+        // limit y vel
+        if (maxYSpeed != 0 && rb.velocity.y > maxYSpeed)
+            rb.velocity = new Vector3(rb.velocity.x, maxYSpeed, rb.velocity.z);
 
     }
 
