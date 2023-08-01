@@ -65,9 +65,9 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
-    //[Header("GUI")]
-    //public TextMeshProUGUI speedGUI;
-    //public TextMeshProUGUI stateGUI;
+    // [Header("GUI")]
+    // public TextMeshProUGUI speedGUI;
+    // public TextMeshProUGUI stateGUI;
 
     
     
@@ -197,8 +197,8 @@ public class PlayerMovement : MonoBehaviour
 
         StateHandler();
 
-        //speedGUI.text = "Speed: " + Mathf.Round(rb.velocity.magnitude).ToString();
-        //stateGUI.text = state.ToString();
+        // speedGUI.text = "Speed: " + Mathf.Round(rb.velocity.magnitude).ToString();
+        // stateGUI.text = state.ToString();
     }
     private bool jumpPressed;
     private void FixedUpdate()
