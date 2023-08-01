@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dashing : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Dashing : MonoBehaviour
 
     [Header("Cooldown")]
     public float dashCd;
+    public Slider cooldownBar;
     private float dashCdTimer;
 
     [Header("Input")]
@@ -37,6 +39,9 @@ public class Dashing : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerMovement>();
+
+        cooldownBar.minValue = 0f;
+        cooldownBar.maxValue = dashCd;
     }
     private void Update()
     {
@@ -45,6 +50,8 @@ public class Dashing : MonoBehaviour
 
         if (dashCdTimer > 0)
             dashCdTimer -= Time.deltaTime;
+
+        cooldownBar.value = dashCd - dashCdTimer;
     }
 
     private void Dash()
