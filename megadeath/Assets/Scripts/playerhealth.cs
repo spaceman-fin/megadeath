@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//goes on the PlayerObj, 
 public class playerhealth : MonoBehaviour
 {
     

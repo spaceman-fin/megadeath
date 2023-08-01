@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
-
+// goes on the start scene canvas, assign the correct functions to the buttons 
 public class playgame : MonoBehaviour
 {
     

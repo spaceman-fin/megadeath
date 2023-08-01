@@ -5,6 +5,8 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    //attach to player, rename the play to realplayer when you drag it into the scene 
     [Header("Reference")]
     public Transform orientation;
     public Transform playerObj;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+//goes on PlayerCam
 public class PlayerCam : MonoBehaviour
 {
     public float sensX;

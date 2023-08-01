@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class bulletprops : MonoBehaviour
 {
+
+    //goes on bullet prefab
+
     public Rigidbody rb;
     public GameObject player;
     public Vector3 playerpos;
@@ -18,7 +21,7 @@ public class bulletprops : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("player in game");
+        //player = GameObject.FindWithTag("player in game");
         //getifinrange.GetComponent<enemymovement>(). = ;
 
         //bullet.GetComponent<bulletprops>().getifinrange = 
@@ -30,7 +33,7 @@ public class bulletprops : MonoBehaviour
     
     void Update()
     {
-        isinrange = getifinrange.bullrange(); //not geting correct value
+        isinrange = getifinrange.bullrange(); 
         if(!isinrange)
         {
             x = 1;
@@ -63,7 +66,7 @@ public class bulletprops : MonoBehaviour
 
     public void movetoward()
     {
-        bullet.transform.position = Vector3.MoveTowards(bulletpos, playerpos, 0.01f);
+        bullet.transform.position = Vector3.MoveTowards(bulletpos, playerpos, 0.035f);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -89,7 +92,7 @@ public class bulletprops : MonoBehaviour
 
     public void keepmoving()
     {
-        rb.AddForce(bullet.transform.forward * 0.01f, ForceMode.VelocityChange);
+        rb.AddForce(bullet.transform.forward * 0.035f, ForceMode.VelocityChange);
     }
     
 }
