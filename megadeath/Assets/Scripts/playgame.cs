@@ -47,7 +47,7 @@ public class playgame : MonoBehaviour
 
     public void quithit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
