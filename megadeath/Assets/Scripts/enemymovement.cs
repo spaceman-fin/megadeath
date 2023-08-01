@@ -14,11 +14,15 @@ public class enemymovement : MonoBehaviour
     public GameObject ingamebullet;
     public int enemyhealth = 2;
     public GameObject realenemy;
+    public Vector3 enemydirection;
+    public Quaternion enemyrotate;
 
 
     void Start()
     {
-
+        enemydirection = player.transform.position - realenemy.transform.position;
+        enemyrotate = Quaternion.LookRotation(enemydirection);
+        realenemy.transform.rotation = enemyrotate;
         realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
 
     }

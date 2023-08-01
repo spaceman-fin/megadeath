@@ -195,6 +195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5849063839463982045, guid: 4942011db68eed0428325989f3d66688, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 830b0da182d9c0a4ca97dcd784018664, type: 2}
     - target: {fileID: 5849063839782108125, guid: 4942011db68eed0428325989f3d66688, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -205,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5849063839782108125, guid: 4942011db68eed0428325989f3d66688, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53999996
+      value: 2.08
       objectReference: {fileID: 0}
     - target: {fileID: 5849063839782108125, guid: 4942011db68eed0428325989f3d66688, type: 3}
       propertyPath: m_LocalPosition.z
@@ -251,6 +255,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 906212790}
+    - target: {fileID: 8129124962582683378, guid: 4942011db68eed0428325989f3d66688, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 830b0da182d9c0a4ca97dcd784018664, type: 2}
     - target: {fileID: 8129124962582683381, guid: 4942011db68eed0428325989f3d66688, type: 3}
       propertyPath: playercamera
       value: 
@@ -271,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204383717}
   - component: {fileID: 204383716}
+  - component: {fileID: 204383718}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -355,6 +364,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &204383718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204383715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &205207008
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +436,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 830b0da182d9c0a4ca97dcd784018664, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -701,6 +730,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8129124962582683376, guid: 4942011db68eed0428325989f3d66688, type: 3}
   m_PrefabInstance: {fileID: 8129124961655684912}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1424378317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8129124962582683376, guid: 4942011db68eed0428325989f3d66688, type: 3}
+  m_PrefabInstance: {fileID: 187024803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2311152980405186122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -711,7 +745,7 @@ PrefabInstance:
     - target: {fileID: 2311152981166631840, guid: 1266d9d71cc38a243a854281c3e31344, type: 3}
       propertyPath: armattack
       value: 
-      objectReference: {fileID: 1270817216}
+      objectReference: {fileID: 1424378317}
     - target: {fileID: 2311152981166631843, guid: 1266d9d71cc38a243a854281c3e31344, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -722,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2311152981166631843, guid: 1266d9d71cc38a243a854281c3e31344, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.53
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 2311152981166631843, guid: 1266d9d71cc38a243a854281c3e31344, type: 3}
       propertyPath: m_LocalPosition.z
@@ -764,6 +798,10 @@ PrefabInstance:
       propertyPath: realenemy
       value: 
       objectReference: {fileID: 1055536823}
+    - target: {fileID: 2311152981166631853, guid: 1266d9d71cc38a243a854281c3e31344, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bec5f38ae6b5d644a8bc6cb7832b913, type: 2}
     - target: {fileID: 2311152981166631855, guid: 1266d9d71cc38a243a854281c3e31344, type: 3}
       propertyPath: m_Name
       value: enemyingame

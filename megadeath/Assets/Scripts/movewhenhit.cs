@@ -28,7 +28,7 @@ public class movewhenhit : MonoBehaviour
         if(other.tag == "fist")
         {
             
-            rb.velocity += new Vector3(distancex, 5, distancez) * flyspeed;
+            rb.velocity += new Vector3(distancex, 3.5f, distancez) * flyspeed;
 
 
 

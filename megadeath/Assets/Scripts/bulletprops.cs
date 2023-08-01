@@ -71,7 +71,7 @@ public class bulletprops : MonoBehaviour
         //if(other.tag == "player in game")
         //{
             Destroy(bullet);
-            Debug.Log("player hit");
+            //Debug.Log("player hit");
         //}
 
 
