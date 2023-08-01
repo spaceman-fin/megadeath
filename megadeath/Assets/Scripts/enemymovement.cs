@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//goes on enemy, re name the enemy to enemyingame if you drag the enemy from a prefab
+
 public class enemymovement : MonoBehaviour
 {
 
@@ -16,6 +18,8 @@ public class enemymovement : MonoBehaviour
     public GameObject realenemy;
     public Vector3 enemydirection;
     public Quaternion enemyrotate;
+    public Vector3 enemyloco;
+    public Vector3 playerloco;
 
 
     void Start()
@@ -30,6 +34,13 @@ public class enemymovement : MonoBehaviour
     
     void Update()
     {
+
+        enemydirection = new Vector3(player.transform.position.x - realenemy.transform.position.x, 0f, player.transform.position.z - realenemy.transform.position.z);
+        enemyrotate = Quaternion.LookRotation(enemydirection);
+        realenemy.transform.rotation = enemyrotate;
+        enemyloco = realenemy.transform.position;
+        playerloco = player.transform.position;
+        realenemy.transform.position = Vector3.MoveTowards(enemyloco, playerloco, 0.01f);
         inrange();
         fire();
         enemydeath();

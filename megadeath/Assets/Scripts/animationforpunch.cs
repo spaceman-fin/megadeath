@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// goes on the player/realplayer
 public class animationforpunch : MonoBehaviour
 {
 
