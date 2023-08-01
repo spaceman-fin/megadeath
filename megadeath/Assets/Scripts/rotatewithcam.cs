@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//goes on rotatepointforarm
 public class rotatewithcam : MonoBehaviour
 {
 
