@@ -20,46 +20,57 @@ public class enemymovement : MonoBehaviour
     public Quaternion enemyrotate;
     public Vector3 enemyloco;
     public Vector3 playerloco;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
     public bool cangethit = true;
     public BoxCollider enemyhitbox;
     public bool healing = false;
     public playerhealth killheal;
     public int enemplayerhealth = 100;
-    public bool h = false;
+    public bool h = true;
+    public bool ifpaused;
+    public PauseGame pauser;
 //=======
     private playerhealth ph;
 //>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
-=======
->>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
+//=======
+//>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
 
     void Start()
     {
+        realenemy.GetComponent<enemymovement>().pauser = FindObjectOfType<PauseGame>();
+        ifpaused = pauser.getpaused();
         enemydirection = player.transform.position - realenemy.transform.position;
         enemyrotate = Quaternion.LookRotation(enemydirection);
         realenemy.transform.rotation = enemyrotate;
         realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
         //realenemy.GetComponent<enemymovement>().killheal = GameObject.FindObjectOfType<playerhealth>();
         
 //=======
 //>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
-=======
->>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
+//=======
+//>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
     }
 
     
     void Update()
     {
-
+        ifpaused = pauser.getpaused();
+        realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
         enemydirection = new Vector3(player.transform.position.x - realenemy.transform.position.x, 0f, player.transform.position.z - realenemy.transform.position.z);
         enemyrotate = Quaternion.LookRotation(enemydirection);
         realenemy.transform.rotation = enemyrotate;
         enemyloco = realenemy.transform.position;
         playerloco = player.transform.position;
-        realenemy.transform.position = Vector3.MoveTowards(enemyloco, playerloco, 0.01f);
+
+        if(!ifpaused)
+        {
+            realenemy.transform.position = Vector3.MoveTowards(enemyloco, playerloco, 0.01f);
+        }
+        
+
         inrange();
         fire();
         enemydeath();
@@ -120,9 +131,11 @@ public class enemymovement : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "player in game")
+        if(other.tag == "fist" && h)
         {
             enemyhealth--;
+            h = false;
+            Invoke("changeer", 1);
         }
     }
 
@@ -131,7 +144,7 @@ public class enemymovement : MonoBehaviour
         if(enemyhealth <= 0)
         {
             Destroy(realenemy);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
             //cangethit = false;
             //Invoke("changecanget", 1);
@@ -139,10 +152,15 @@ public class enemymovement : MonoBehaviour
 //=======
             playerhealth.score += 100;
 //>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
-=======
-            playerhealth.score += 100;
->>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
+//=======
+            //playerhealth.score += 100;
+//>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
         }
+    }
+
+    public void changeer()
+    {
+        h = true;
     }
 
 

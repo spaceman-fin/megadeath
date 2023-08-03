@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/fist.unity
     guid: 4bfd70a2aecc3ae478c8b92fde6a9ed4
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 1899bb5bd152e884e82d66924682a7e5
   m_configObjects: {}

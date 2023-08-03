@@ -7,6 +7,7 @@ public class PauseGame : MonoBehaviour
     public GameObject PausePanel;
     private bool isPaused;
     public KeyCode PauseKey = KeyCode.Escape;
+    
 
     private void Start()
     {
@@ -35,5 +36,10 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public bool getpaused()
+    {
+        return isPaused;
     }
 }

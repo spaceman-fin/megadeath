@@ -74,7 +74,11 @@ public class bulletprops : MonoBehaviour
     {
         //if(other.tag == "player in game")
         //{
+        if(other.tag != "healpack")
+        {
             Destroy(bullet);
+        }
+            
             //Debug.Log("player hit");
         //}
 
@@ -87,7 +91,7 @@ public class bulletprops : MonoBehaviour
         {
             attackingplayer = false;
             keepmoving();
-            Debug.Log("done moving");
+            //Debug.Log("done moving");
         }
     }
 

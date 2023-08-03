@@ -211,3 +211,4 @@ MonoBehaviour:
   healing: 0
   killheal: {fileID: 0}
   enemplayerhealth: 100
+  h: 1
