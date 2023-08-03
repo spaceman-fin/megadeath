@@ -9,6 +9,7 @@ TagManager:
   - player
   - 'player in game '
   - enemy in game
+  - player in game
   layers:
   - Default
   - TransparentFX
