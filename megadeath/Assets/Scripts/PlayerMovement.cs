@@ -16,9 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public MovementState state;
     private float moveSpeed;
-    public float walkSpeed;
+    public float walkSpeed = 12;
 
-    public float groundDrag;
+    public float groundDrag = 5;
 
     [Space]
     private float desiredMoveSpeed;
@@ -26,29 +26,29 @@ public class PlayerMovement : MonoBehaviour
     private MovementState lastState;
     private bool keepMomentum;
 
-    public float speedIncreaseMultiplier;
-    public float slopeIncreaseMultiplier;
+    public float speedIncreaseMultiplier = 1.5f;
+    public float slopeIncreaseMultiplier = 2.5f;
     private float speedChangeFactor;
 
     [Header("Dashing")]
-    public float dashSpeed;
-    public float dashSpeedChangeFactor;
-    public bool dashing;
+    public float dashSpeed = 20;
+    public float dashSpeedChangeFactor = 50;
+    public bool dashing = false;
     public float maxYSpeed;
 
     [Header("Jumping")]
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
+    public float jumpForce = 7;
+    public float jumpCooldown = 0.25f;
+    public float airMultiplier = 0.4f;
     bool readyToJump;
 
     [Header("Crouching & Sliding")]
-    public float crouchSpeed;
-    public float crouchYScale;
+    public float crouchSpeed = 6;
+    public float crouchYScale = 0.5f;
     private float startYScale;
 
-    public float slideForce;
-    public float slideSpeed;
+    public float slideForce = 200;
+    public float slideSpeed = 30;
     private bool sliding;
 
     [Header("Input")]
@@ -58,12 +58,12 @@ public class PlayerMovement : MonoBehaviour
     private float verticalInput;
 
     [Header("Ground Check")]
-    public float playerHeight;
+    public float playerHeight = 2;
     public LayerMask whatIsGround;
     bool grounded;
 
     [Header("Slope Handling")]
-    public float maxSlopeAngle;
+    public float maxSlopeAngle = 40;
     private RaycastHit slopeHit;
     private bool exitingSlope;
 

@@ -10,7 +10,11 @@ TagManager:
   - 'player in game '
   - enemy in game
   - player in game
+<<<<<<< HEAD
   - healpack
+=======
+  - DamageTile
+>>>>>>> 7c31ed0a410f4161dc9693c509f2261dcae35061
   layers:
   - Default
   - TransparentFX

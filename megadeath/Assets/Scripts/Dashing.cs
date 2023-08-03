@@ -22,9 +22,9 @@ public class Dashing : MonoBehaviour
     public float dashFov;
 
     [Header("Settings")]
-    public bool useCameraForward = true;
+    public bool useCameraForward = false;
     public bool allowAllDirections = true;
-    public bool disableGravity = false;
+    public bool disableGravity = true;
     public bool resetVel = true;
 
     [Header("Cooldown")]

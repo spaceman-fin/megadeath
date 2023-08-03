@@ -162,6 +162,7 @@ public class enemymovement : MonoBehaviour
 //>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
         }
     }
+<<<<<<< HEAD
 
     public void changeer()
     {
@@ -169,4 +170,11 @@ public class enemymovement : MonoBehaviour
     }
 
 
+=======
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "DamageTile")
+            enemyhealth = 0;
+    }
+>>>>>>> 7c31ed0a410f4161dc9693c509f2261dcae35061
 }

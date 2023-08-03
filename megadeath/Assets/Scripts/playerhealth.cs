@@ -188,5 +188,13 @@ public class playerhealth : MonoBehaviour
         }
     }
 
+//<<<<<<< HEAD
     
+//=======
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "DamageTile")
+            health = 0;
+    }
+//>>>>>>> 7c31ed0a410f4161dc9693c509f2261dcae35061
 }
