@@ -113,6 +113,9 @@ public class enemymovement : MonoBehaviour
             playerhealth.score += 100;
         }
     }
-
-
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "DamageTile")
+            enemyhealth = 0;
+    }
 }

@@ -39,4 +39,10 @@ public class playerhealth : MonoBehaviour
             health -= 10;
         }
     }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "DamageTile")
+            health = 0;
+    }
 }
