@@ -20,6 +20,7 @@ public class enemymovement : MonoBehaviour
     public Quaternion enemyrotate;
     public Vector3 enemyloco;
     public Vector3 playerloco;
+<<<<<<< HEAD
 //<<<<<<< HEAD
     public bool cangethit = true;
     public BoxCollider enemyhitbox;
@@ -30,28 +31,29 @@ public class enemymovement : MonoBehaviour
 //=======
     private playerhealth ph;
 //>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
+=======
+>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
 
     void Start()
     {
-
         enemydirection = player.transform.position - realenemy.transform.position;
         enemyrotate = Quaternion.LookRotation(enemydirection);
         realenemy.transform.rotation = enemyrotate;
         realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
+<<<<<<< HEAD
 //<<<<<<< HEAD
         //realenemy.GetComponent<enemymovement>().killheal = GameObject.FindObjectOfType<playerhealth>();
         
 //=======
 //>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
+=======
+>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
     }
 
     
     void Update()
     {
-        
-        realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
-        //enemplayerhealth = killheal.heal();
-        realenemy.GetComponent<enemymovement>().killheal = GameObject.FindObjectOfType<playerhealth>();
+
         enemydirection = new Vector3(player.transform.position.x - realenemy.transform.position.x, 0f, player.transform.position.z - realenemy.transform.position.z);
         enemyrotate = Quaternion.LookRotation(enemydirection);
         realenemy.transform.rotation = enemyrotate;
@@ -60,7 +62,7 @@ public class enemymovement : MonoBehaviour
         realenemy.transform.position = Vector3.MoveTowards(enemyloco, playerloco, 0.01f);
         inrange();
         fire();
-        //enemydeath();
+        enemydeath();
     }
 
 
@@ -118,31 +120,10 @@ public class enemymovement : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "fist")
+        if(other.tag == "player in game")
         {
-            //enemyhealth--;
-            if(enemyhealth == 2 && cangethit)
-            {
-                enemyhealth = 1;
-                Invoke("changecanget", 1);
-            }
-
-            else if(enemyhealth == 1 && !cangethit)
-            {
-                //enemplayerhealth = killheal.heal();
-                //healing = true;
-                Destroy(realenemy);
-                //add to health
-                //enemplayerhealth = 10;
-                //h = true;
-                //enemplayerhealth -= 10;
-                
-                //Invoke("enemplayerhealth", 0.01f);
-            }
-            //disable box collider for 1 sec
-            //enemyhitbox.enabled = false;
-            //Invoke("changecanget", 1);
-        }//
+            enemyhealth--;
+        }
     }
 
     public void enemydeath()
@@ -150,6 +131,7 @@ public class enemymovement : MonoBehaviour
         if(enemyhealth <= 0)
         {
             Destroy(realenemy);
+<<<<<<< HEAD
 //<<<<<<< HEAD
             //cangethit = false;
             //Invoke("changecanget", 1);
@@ -157,32 +139,11 @@ public class enemymovement : MonoBehaviour
 //=======
             playerhealth.score += 100;
 //>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
+=======
+            playerhealth.score += 100;
+>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
         }
     }
 
-    public void changecanget()
-    {
-        cangethit = false;
-
-    }
-    public bool healthing()
-    {
-        return healing;
-    }
-
-    public int thishealth()
-    {
-        return enemplayerhealth;
-    }
-
-    public void changeit()
-    {
-        enemplayerhealth = 0;
-    }
-
-    public bool hhh()
-    {
-        return h;
-    }
 
 }
