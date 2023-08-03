@@ -20,7 +20,6 @@ public class enemymovement : MonoBehaviour
     public Quaternion enemyrotate;
     public Vector3 enemyloco;
     public Vector3 playerloco;
-    private playerhealth ph;
 
     void Start()
     {

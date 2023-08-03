@@ -12,10 +12,10 @@ public class Dashing : MonoBehaviour
     private PlayerMovement pm;
 
     [Header("Dashing")]
-    public float dashForce;
-    public float dashUpwardForce;
-    public float maxDashYSpeed;
-    public float dashDuration;
+    public float dashForce = 20;
+    public float dashUpwardForce = 0;
+    public float maxDashYSpeed = 15;
+    public float dashDuration = 0.25f;
 
     [Header("CameraEffects")]
     public PlayerCam cam;
@@ -28,7 +28,7 @@ public class Dashing : MonoBehaviour
     public bool resetVel = true;
 
     [Header("Cooldown")]
-    public float dashCd;
+    public float dashCd = 1.5f;
     public Slider cooldownBar;
     private float dashCdTimer;
 

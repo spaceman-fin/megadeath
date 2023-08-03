@@ -29,7 +29,7 @@ public class playerhealth : MonoBehaviour
         if (health <= 0)
             SceneManager.LoadScene("DeathScene");
 
-        scoreText.text = score.ToString();
+        scoreText.text = playerhealth.score.ToString();
     }
 
     public void OnTriggerEnter(Collider other)
