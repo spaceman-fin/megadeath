@@ -11,6 +11,8 @@ public class DeathScreen : MonoBehaviour
     {
         endScore = playerhealth.score;
         scoreCount.text = "Your Score: " + endScore.ToString();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void MainMenuButton()
     {
