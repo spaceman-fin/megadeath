@@ -17,6 +17,8 @@ public class hit : MonoBehaviour
     public animationforpunch punch;
     
     public GameObject playerdasher;
+    public bool healer = false;
+    public int toheal = 0;
 
     void Start()
     {
@@ -61,6 +63,45 @@ public class hit : MonoBehaviour
         //playermove.AddRelativeForce(directiondash, ForceMode.Impulse);
         
     }
-    
-    
+
+    public void checkforheal()
+    {
+
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "enemy in game" && toheal == 0)
+        {
+            //healer = false;
+            //Invoke("changetoheal", 1);
+        }
+        if (other.tag == "enemy in game" && toheal == 1)
+        {
+            //healer = true;
+            //toheal = 0;
+        }
+        //if (other.tag == "enemy in game" && toheal % 2 == 0)
+        //{
+            
+        //}
+        
+    }
+
+    public void changehealer()
+    {
+        healer = false;
+    }
+
+    public bool givehealed()
+    {
+        return healer;
+    }
+
+
+    public void changetoheal()
+    {
+        toheal += 1;
+    }
+
 }

@@ -14,7 +14,7 @@ public class movewhenhit : MonoBehaviour
 
     void Start()
     {
-        
+        enemy.GetComponent<movewhenhit>().armattack = GameObject.FindGameObjectWithTag("fist");
     }
 
     
