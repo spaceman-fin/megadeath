@@ -32,9 +32,14 @@ public class enemymovement : MonoBehaviour
     public PauseGame pauser;
 //=======
     private playerhealth ph;
-//>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
-//=======
-//>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
+    //>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
+    //=======
+    //>>>>>>> d863e28232c699476552e3f1fee5bd36c98069f4
+
+    private void Awake()
+    {
+        realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
+    }
 
     void Start()
     {

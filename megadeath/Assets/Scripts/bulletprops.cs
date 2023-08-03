@@ -19,6 +19,7 @@ public class bulletprops : MonoBehaviour
     public bool isinrange = true;
     public enemymovement getifinrange;
     public bool canfollow = true;
+    public Vector3 up = new Vector3(0, 0.5f, 0);
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class bulletprops : MonoBehaviour
         {
             playerpos = player.transform.position;
             //playerpos = transform.TransformPoint(playerpos);
-            lookdirection = player.transform.position - bullet.transform.position;
+            lookdirection = player.transform.position + up - bullet.transform.position;
             rotate = Quaternion.LookRotation(lookdirection);
             bullet.transform.rotation = rotate;
             x = 0;
@@ -67,14 +68,14 @@ public class bulletprops : MonoBehaviour
 
     public void movetoward()
     {
-        bullet.transform.position = Vector3.MoveTowards(bulletpos, playerpos, 0.035f);
+        bullet.transform.position = Vector3.MoveTowards(bulletpos, playerpos + up, 0.035f);
     }
 
     public void OnTriggerEnter(Collider other)
     {
         //if(other.tag == "player in game")
         //{
-        if(other.tag != "healpack")
+        if(other.tag != "healpack" || other.tag != "enemy in game")
         {
             Destroy(bullet);
         }
@@ -87,7 +88,7 @@ public class bulletprops : MonoBehaviour
     
     public void ifnohit()
     {
-        if(Vector3.Distance(bulletpos, playerpos)  == 0)
+        if(Vector3.Distance(bulletpos, playerpos + up)  == 0)
         {
             attackingplayer = false;
             keepmoving();
