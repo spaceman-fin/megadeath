@@ -9,6 +9,8 @@ TagManager:
   - player
   - 'player in game '
   - enemy in game
+  - player in game
+  - DamageTile
   layers:
   - Default
   - TransparentFX

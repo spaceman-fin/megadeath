@@ -21,14 +21,12 @@ public class enemymovement : MonoBehaviour
     public Vector3 enemyloco;
     public Vector3 playerloco;
 
-
     void Start()
     {
         enemydirection = player.transform.position - realenemy.transform.position;
         enemyrotate = Quaternion.LookRotation(enemydirection);
         realenemy.transform.rotation = enemyrotate;
         realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
-
     }
 
     
@@ -109,12 +107,15 @@ public class enemymovement : MonoBehaviour
 
     public void enemydeath()
     {
-        if(enemyhealth == 0)
+        if(enemyhealth <= 0)
         {
             Destroy(realenemy);
-
+            playerhealth.score += 100;
         }
     }
-
-
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "DamageTile")
+            enemyhealth = 0;
+    }
 }

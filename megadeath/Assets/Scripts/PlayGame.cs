@@ -13,20 +13,11 @@ public class playgame : MonoBehaviour
     public GameObject controlbutton1;
     public GameObject controlbutton2;
     public GameObject controlbutton3;
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
+   
     public void playhit()
     {
         SceneManager.LoadScene("fist");
+        playerhealth.score = 0;
     }
 
     public void controlhit()
@@ -47,7 +38,7 @@ public class playgame : MonoBehaviour
 
     public void quithit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 

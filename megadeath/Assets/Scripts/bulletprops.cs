@@ -18,6 +18,7 @@ public class bulletprops : MonoBehaviour
     public Quaternion rotate;
     public bool isinrange = true;
     public enemymovement getifinrange;
+    public bool canfollow = true;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class bulletprops : MonoBehaviour
             x = 1;
         }
 
-        if(x == 1 && isinrange)
+        if(x == 1 && isinrange && canfollow)
         {
             playerpos = player.transform.position;
             //playerpos = transform.TransformPoint(playerpos);
@@ -93,6 +94,7 @@ public class bulletprops : MonoBehaviour
     public void keepmoving()
     {
         rb.AddForce(bullet.transform.forward * 0.035f, ForceMode.VelocityChange);
+        canfollow = false;
     }
     
 }
