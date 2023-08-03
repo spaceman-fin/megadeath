@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 //goes on the PlayerObj, 
 public class playerhealth : MonoBehaviour
 {
-    
+    [Header("Basic Values")]
     public int health = 100;
+//<<<<<<< HEAD
     public enemymovement gethealing;
     public bool healing = false;
     public GameObject theplayer;
@@ -20,11 +24,22 @@ public class playerhealth : MonoBehaviour
     {
         theplayer.GetComponent<playerhealth>().gethealing = GameObject.FindObjectOfType<enemymovement>();
         theplayer.GetComponent<playerhealth>().fistheal = GameObject.FindObjectOfType<hit>();
+        healthBar.minValue = 0f;
+        healthBar.maxValue = health;
+        score = 0;
     }
+//=======
+    public static int score;
+    [Header("GUI Elements")]
+    public Slider healthBar;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI scoreText;
 
+    
     
     void Update()
     {
+//<<<<<<< HEAD
 
 
 
@@ -131,14 +146,26 @@ public class playerhealth : MonoBehaviour
 
 
 
+//=======
+        healthBar.value = health;
+        healthText.text = health.ToString();
+        if (health <= 0)
+            SceneManager.LoadScene("DeathScene");
+
+        scoreText.text = playerhealth.score.ToString();
+//>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if(other.tag == "bullet")
         {
+//<<<<<<< HEAD
             health -= 20;
 
+//=======
+            //health -= 10;
+//>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
         }
         
     }

@@ -20,16 +20,16 @@ public class enemymovement : MonoBehaviour
     public Quaternion enemyrotate;
     public Vector3 enemyloco;
     public Vector3 playerloco;
-<<<<<<< HEAD
+//<<<<<<< HEAD
     public bool cangethit = true;
     public BoxCollider enemyhitbox;
     public bool healing = false;
     public playerhealth killheal;
     public int enemplayerhealth = 100;
     public bool h = false;
-=======
+//=======
     private playerhealth ph;
->>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
+//>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
 
     void Start()
     {
@@ -38,11 +38,11 @@ public class enemymovement : MonoBehaviour
         enemyrotate = Quaternion.LookRotation(enemydirection);
         realenemy.transform.rotation = enemyrotate;
         realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
-<<<<<<< HEAD
+//<<<<<<< HEAD
         //realenemy.GetComponent<enemymovement>().killheal = GameObject.FindObjectOfType<playerhealth>();
         
-=======
->>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
+//=======
+//>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
     }
 
     
@@ -150,13 +150,13 @@ public class enemymovement : MonoBehaviour
         if(enemyhealth <= 0)
         {
             Destroy(realenemy);
-<<<<<<< HEAD
+//<<<<<<< HEAD
             //cangethit = false;
             //Invoke("changecanget", 1);
 
-=======
+//=======
             playerhealth.score += 100;
->>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
+//>>>>>>> b9c321fb79f1c7e30ea03dd8e1263425a0a70738
         }
     }
 
