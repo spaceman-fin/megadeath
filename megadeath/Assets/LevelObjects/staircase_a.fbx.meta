@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:megadeath/Assets/Art/Hand&Glove/Hand_Main.mb.meta
-guid: f0e2e8957d224b14ba978c26d83c2c4e
-=======
-guid: dad3c559263efdf46ac2ade9a6e4f1ff
->>>>>>> 3fe31d3c29b314fab0f47430ed2e05ee4ae493f6:megadeath/Assets/Art/Power_Glove/PowerGlove_Final_Mesh.mb.meta
+guid: df91513cf2a3185489838d31c8286e2f
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []

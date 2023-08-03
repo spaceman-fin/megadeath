@@ -251,6 +251,11 @@ public class PlayerMovement : MonoBehaviour
             if (sliding)
                 StopSlide();
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+            Time.timeScale = 0.25f;
+        if (Input.GetKeyUp(KeyCode.G))
+            Time.timeScale = 1f;
     }
 
     private void MovePlayer()

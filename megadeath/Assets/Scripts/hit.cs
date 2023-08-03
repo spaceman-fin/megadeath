@@ -51,7 +51,7 @@ public class hit : MonoBehaviour
         {
             //Debug.Log("movedplayer");
             Invoke("delay", 0.25f);
-            playermove.AddForce(playerdasher.transform.forward * 70f, ForceMode.Impulse);
+            playermove.AddForce(playerdasher.transform.forward * 20f, ForceMode.Impulse);
             //playerdasher.transform.forward = transform.forward;
         }
     }
