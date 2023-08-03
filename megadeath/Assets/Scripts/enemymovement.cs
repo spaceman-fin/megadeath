@@ -20,7 +20,7 @@ public class enemymovement : MonoBehaviour
     public Quaternion enemyrotate;
     public Vector3 enemyloco;
     public Vector3 playerloco;
-
+    private playerhealth ph;
 
     void Start()
     {
@@ -28,7 +28,6 @@ public class enemymovement : MonoBehaviour
         enemyrotate = Quaternion.LookRotation(enemydirection);
         realenemy.transform.rotation = enemyrotate;
         realenemy.GetComponent<enemymovement>().player = GameObject.Find("realplayer");
-
     }
 
     
@@ -109,10 +108,10 @@ public class enemymovement : MonoBehaviour
 
     public void enemydeath()
     {
-        if(enemyhealth == 0)
+        if(enemyhealth <= 0)
         {
             Destroy(realenemy);
-
+            playerhealth.score += 100;
         }
     }
 
