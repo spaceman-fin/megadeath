@@ -68,7 +68,7 @@ public class bulletprops : MonoBehaviour
 
     public void movetoward()
     {
-        bullet.transform.position = Vector3.MoveTowards(bulletpos, playerpos + up, 0.035f);
+        bullet.transform.position = Vector3.MoveTowards(bulletpos, playerpos + up, 0.2f);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -98,7 +98,7 @@ public class bulletprops : MonoBehaviour
 
     public void keepmoving()
     {
-        rb.AddForce(bullet.transform.forward * 0.035f, ForceMode.VelocityChange);
+        rb.AddForce(bullet.transform.forward * 0.2f, ForceMode.VelocityChange);
         canfollow = false;
     }
     

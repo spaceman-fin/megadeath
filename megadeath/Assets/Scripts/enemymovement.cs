@@ -72,7 +72,7 @@ public class enemymovement : MonoBehaviour
 
         if(!ifpaused)
         {
-            realenemy.transform.position = Vector3.MoveTowards(enemyloco, playerloco, 0.01f);
+            realenemy.transform.position = Vector3.MoveTowards(enemyloco, playerloco, 0.09f);
         }
         
 

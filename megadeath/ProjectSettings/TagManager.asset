@@ -4,17 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - fist
-  - bullet
-  - player
-  - 'player in game '
-  - enemy in game
-  - player in game
-<<<<<<< HEAD
-  - healpack
-=======
+  - Undefined
   - DamageTile
->>>>>>> 7c31ed0a410f4161dc9693c509f2261dcae35061
   layers:
   - Default
   - TransparentFX
